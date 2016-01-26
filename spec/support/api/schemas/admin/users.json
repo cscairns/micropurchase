@@ -43,7 +43,8 @@
               "created_at",
               "updated_at",
               "email",
-              "sam_account"
+              "sam_account",
+              "github_login"  
             ],
             "properties": {
               "id": {
@@ -75,7 +76,11 @@
               },
               "sam_account": {
                 "type": "boolean"
-              }
+              },
+              "github_login": {
+                "type": ["string", "null"],
+                "minLength": 1
+              }                
             }
           }
         },
@@ -92,7 +97,8 @@
               "created_at",
               "updated_at",
               "email",
-              "sam_account"
+              "sam_account",
+              "github_login"  
             ],
             "properties": {
               "id": {
@@ -123,7 +129,11 @@
               },
               "sam_account": {
                 "type": "boolean"
-              }
+              },
+              "github_login": {
+                "type": ["string", "null"],
+                "minLength": 1
+              }                
             }
           }
         }
