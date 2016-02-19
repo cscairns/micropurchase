@@ -107,6 +107,14 @@ FactoryGirl.define do
       published { :unpublished }
     end
 
+    trait :single_bid do
+      type { :single_bid }
+    end
+
+    trait :multi_bid do
+      type { :multi_bid }
+    end
+
     trait :complete_and_successful do
       with_bidders
       delivery_deadline_expired

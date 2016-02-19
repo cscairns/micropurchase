@@ -13,6 +13,25 @@ RSpec.feature "bidder interacts with auction", type: :feature do
       expect(page).to_not have_text(@unpublished_auction.title)
     end
 
+    scenario 'There is a mix of single-bid and multi-bid auctions' do
+      single_bid = FactoryGirl.create(:auction, :running, :single_bid)
+      multi_bid = FactoryGirl.create(:auction, :running, :multi_bid)
+
+      visit '/'
+
+      multi_bid = 'Multi-bid'
+      expect(page).to have_content(multi_bid)
+      expect(page).to have_content('Single-bid')
+
+      click_on(multi_bid)
+      expect(page).to have_content('Rules for multi-bid auctions')
+
+      visit '/'
+
+      click_on(single_bid)
+      expect(page).to have_content('Rules for single-bid auctions')
+    end
+
     scenario "There are unpublished auctions and visiting auctions#show" do
       @unpublished_auction = FactoryGirl.create(:auction, :unpublished)
       @published_auction = FactoryGirl.create(:auction, :published)
